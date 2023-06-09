@@ -51,9 +51,15 @@ public class WebMvcConfiguration implements WebFluxConfigurer {
     }
 
     @Bean
-    public RouterFunction<ServerResponse> imgRouter() {
+    public RouterFunction<ServerResponse> assetsRouter() {
         return RouterFunctions
                 .resources("/assets/**", new ClassPathResource("front/assets/"));
+    }
+
+    @Bean
+    public RouterFunction<ServerResponse> publicRouter() {
+        return RouterFunctions
+                .resources("/*.*", new ClassPathResource("front/"));
     }
 
 
